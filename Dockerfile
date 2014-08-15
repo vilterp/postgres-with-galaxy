@@ -1,5 +1,8 @@
 FROM ubuntu
 
+# http://stackoverflow.com/questions/25193161/chfn-pam-system-error-intermittently-in-docker-hub-builds (??)
+RUN ln -s -f /bin/true /usr/bin/chfn
+
 # Add the PostgreSQL PGP key to verify their Debian packages.
 # It should be the same key as https://www.postgresql.org/media/keys/ACCC4CF8.asc
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
